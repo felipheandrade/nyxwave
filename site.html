@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NyxWave</title>
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#ff2e63">
+    <link rel="icon" href="assets/nyxwave-logo-transparent.png" type="image/png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="site.css">
+    <link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#1DB954">
+
+</head>
+<body>
+    <!-- Tela de Introdução -->
+    <div id="intro-screen">
+        <div class="intro-logo-container">
+            <img src="assets/nyxwave-logo-transparent.png" alt="NyxWave Logo" class="nyxwave-logo">
+            <p>Carregando sua experiência musical...</p>
+        </div>
+    </div>
+
+    <!-- Tela de Login Moderna -->
+    <div id="login-screen">
+        <div class="login-container-large">
+            <div class="login-left-large">
+                <div class="logo-center">
+                    <img src="assets/nyxwave-logo-transparent.png" alt="NyxWave Logo" class="nyxwave-logo-full">
+                </div>
+                <div class="welcome-text-large">
+                    <h2>Seja Bem Vindo!</h2>
+                    <p>NyxWave High Quality</p>
+                </div>
+            </div>
+            <div class="login-right-large">
+                <h2><i class="fas fa-lock"></i> Acesso Restrito</h2>
+                <form id="login-form">
+                    <div class="input-group-large">
+                        <i class="fas fa-user"></i>
+                        <input type="text" id="username" placeholder="Usuário" autocomplete="off" required>
+                    </div>
+                    <div class="input-group-large password-group-large">
+                        <i class="fas fa-key"></i>
+                        <input type="password" id="password" placeholder="Senha" required>
+                        <button type="button" id="toggle-password" class="toggle-btn-large">
+                            <i class="far fa-eye"></i>
+                        </button>
+                    </div>
+                    <div class="remember-row-large">
+                        <label class="remember-me-large">
+                            <input type="checkbox" id="remember">
+                            <span>Lembrar usuário</span>
+                        </label>
+                        <a href="#" class="forgot-password-large">Esqueceu a senha?</a>
+                    </div>
+                    <div class="signup-link">
+                        <a href="#" id="show-signup">Criar uma conta</a>
+                    </div>
+                    <button type="submit">Entrar</button>
+                    <p id="login-error" class="error-message"></p>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Overlay de bloqueio -->
+    <div id="overlay" style="display: none;"></div>
+
+    <!-- Container principal do player -->
+    <div id="app-container" style="display: none;">
+        <i class="fas fa-moon" id="theme-toggle" title="Mudar tema"></i>
+        
+        <!-- Botão de Perfil (com avatar funcional) -->
+<div id="user-profile" class="mini-player-style">
+    <div class="avatar-container">
+        <img src="assets/nyxwave-logo-transparent.png" alt="Avatar" id="user-avatar" class="user-avatar">
+    </div>
+    <div class="user-info">
+        <span id="username-display">Convidado</span>
+        <span id="play-count">0 músicas</span>
+    </div>
+</div>
+
+        <div class="background">
+            <img src="" id="bg-img" alt="Background">
+        </div>
+        <div class="player-container">
+            <div class="search-bar">
+                <i class="fas fa-search"></i>
+                <input type="text" id="search-input" placeholder="Pesquisar músicas...">
+            </div>
+            <div class="cover-container">
+                <img src="" id="cover" alt="Capa da música">
+                <div class="favorite-btn" id="favorite-toggle">
+                    <i class="far fa-heart"></i>
+                </div>
+            </div>
+            <div class="music-info">
+                <h2 id="music-title">Carregando...</h2>
+                <h3 id="music-artist">Artista</h3>
+            </div>
+            <div class="progress-container">
+                <span id="current-time">0:00</span>
+                <div class="progress-bar" id="player-progress">
+                    <div class="progress" id="progress"></div>
+                </div>
+                <span id="duration">0:00</span>
+            </div>
+
+            <div class="equalizer" id="equalizer"></div>
+
+            <div class="controls">
+                <i class="fas fa-random" id="shuffle" title="Aleatório"></i>
+                <i class="fas fa-step-backward" id="prev"></i>
+                <i class="fas fa-play play-button" id="play"></i>
+                <i class="fas fa-step-forward" id="next"></i>
+                <i class="fas fa-redo" id="repeat" title="Repetir"></i>
+            </div>
+            <div class="volume-container">
+                <i class="fas fa-volume-up" id="volume-icon"></i>
+                <input type="range" id="volume" min="0" max="100" value="80">
+            </div>
+            <div class="action-buttons">
+                <button class="favorites-btn" id="favorites-btn">
+                    <i class="fas fa-heart"></i> Favoritos
+                </button>
+                <button class="lyrics-btn" id="lyrics-btn">
+                    <i class="fas fa-music"></i> Letra
+                </button>
+                <button class="playlist-btn" id="playlist-btn">
+                    <i class="fas fa-list"></i> Playlist
+                </button>
+                <button class="upload-btn" id="upload-btn">
+                    <i class="fas fa-upload"></i> Adicionar
+                </button>
+            </div>
+            <input type="file" id="file-upload" accept="audio/*" multiple style="display: none;">
+        </div>
+
+        <!-- Modais -->
+        <div class="modal" id="favorites-modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3><i class="fas fa-heart"></i> Músicas Favoritas</h3>
+                    <span class="close-btn" id="close-favorites">&times;</span>
+                </div>
+                <div class="favorites-list" id="favorites-list"></div>
+            </div>
+        </div>
+
+        <div class="modal" id="lyrics-modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3 id="lyrics-title">Letra da Música</h3>
+                    <span class="close-btn" id="close-lyrics">&times;</span>
+                </div>
+                <div class="lyrics-content" id="lyrics-content">
+                    <p>Carregando letra...</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal" id="playlist-modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3><i class="fas fa-list"></i> Playlist</h3>
+                    <span class="close-btn" id="close-playlist">&times;</span>
+                </div>
+                <div class="playlist-list" id="playlist-list"></div>
+            </div>
+        </div>
+
+        <div class="modal" id="profile-modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3><i class="fas fa-user-circle"></i> Meu Perfil</h3>
+                    <span class="close-btn" id="close-profile">&times;</span>
+                </div>
+                <div class="profile-content" id="profile-content">
+                    <p>Carregando...</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Mini Player Fixo -->
+    <div id="mini-player" style="display: none;">
+        <img src="" id="mini-cover" alt="Capa">
+        <div class="mini-info">
+            <div id="mini-title">Música</div>
+            <div id="mini-artist">Artista</div>
+        </div>
+        <div class="mini-controls">
+            <i class="fas fa-step-backward" id="mini-prev"></i>
+            <i class="fas fa-play" id="mini-play"></i>
+            <i class="fas fa-step-forward" id="mini-next"></i>
+        </div>
+    </div>
+
+    <!-- Mini Player de Perfil (opcional, mas opcionalmente visível) -->
+    <!-- Não é necessário se você já tem o #user-profile no topo -->
+
+    <script src="index.js"></script>
+</body>
+</html>
