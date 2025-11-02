@@ -1,0 +1,1193 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Ubuntu', sans-serif;
+    background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    color: #fff;
+    position: relative;
+}
+
+/* ===== TELA DE INTRO ===== */
+#intro-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 0.8s ease, visibility 0.8s ease;
+}
+
+#intro-screen.hidden {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.intro-logo-container {
+    text-align: center;
+    color: white;
+    padding: 20px;
+}
+
+.nyxwave-logo {
+    width: 300px;
+    max-width: 80vw;
+    height: auto;
+    filter: drop-shadow(0 0 15px rgba(70, 50, 255, 0.7));
+    animation: pulseLogo 1.8s infinite;
+    margin-bottom: 20px;
+}
+
+@keyframes pulseLogo {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+#intro-screen p {
+    font-size: 14px;
+    opacity: 0.8;
+    margin-top: 10px;
+    font-weight: 300;
+    letter-spacing: 1px;
+}
+
+/* ===== LOGIN MODERNO ===== */
+/* Tela de login */
+#login-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9998;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.6s ease, visibility 0.6s ease;
+}
+
+#login-screen.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Tela de cadastro */
+#signup-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9998;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.6s ease, visibility 0.6s ease;
+}
+
+#signup-screen.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+#login-screen.hidden {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.login-container-large {
+    display: flex;
+    width: 95%;
+    max-width: 1200px;
+    border-radius: 25px;
+    overflow: hidden;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    height: 600px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.login-left-large {
+    flex: 1;
+    background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    position: relative;
+    overflow: hidden;
+}
+
+.logo-center {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.nyxwave-logo-full {
+    width: 300px;
+    height: auto;
+    filter: drop-shadow(0 0 15px rgba(70, 50, 255, 0.8));
+    animation: pulseLogoLogin 2s infinite;
+}
+
+@keyframes pulseLogoLogin {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+.welcome-text-large h2 {
+    font-size: 32px;
+    font-weight: 600;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.welcome-text-large p {
+    font-size: 16px;
+    opacity: 0.8;
+    line-height: 1.6;
+    text-align: center;
+    max-width: 80%;
+}
+
+.login-right-large {
+    flex: 1;
+    padding: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background: rgba(20, 20, 30, 0.8);
+    color: white;
+    border-left: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.login-right-large h2 {
+    margin-bottom: 30px;
+    font-size: 28px;
+    font-weight: 600;
+    color: #ff2e63;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.input-group-large {
+    position: relative;
+    margin: 15px 0;
+    display: flex;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    padding: 0 20px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.input-group-large i {
+    color: #ff2e63;
+    margin-right: 15px;
+    font-size: 18px;
+}
+
+.input-group-large input {
+    flex: 1;
+    padding: 15px 0;
+    border: none;
+    background: transparent;
+    outline: none;
+    font-size: 16px;
+    color: white;
+}
+
+.password-group-large {
+    position: relative;
+}
+
+.toggle-btn-large {
+    position: absolute;
+    right: 20px;
+    background: none;
+    border: none;
+    color: #aaa;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.remember-row-large {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 20px 0;
+    font-size: 14px;
+}
+
+.remember-me-large {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    color: #ccc;
+}
+
+.remember-me-large input {
+    width: 18px;
+    height: 18px;
+    accent-color: #ff2e63;
+    cursor: pointer;
+}
+
+.forgot-password-large {
+    color: #ff2e63;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.forgot-password-large:hover {
+    text-decoration: underline;
+}
+
+#login-form button[type="submit"] {
+    width: 100%;
+    padding: 15px;
+    background: #ff2e63;
+    color: white;
+    border: none;
+    border-radius: 15px;
+    font-size: 18px;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 15px;
+    transition: all 0.3s;
+}
+
+#login-form button[type="submit"]:hover {
+    background: #e02050;
+    transform: translateY(-2px);
+}
+
+.error-message {
+    color: #ff4d6d;
+    font-size: 14px;
+    margin-top: 10px;
+    min-height: 20px;
+}
+
+/* ===== OVERLAY DE BLOQUEIO ===== */
+#overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    z-index: 9997;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+#overlay.active {
+    opacity: 1;
+    pointer-events: all;
+}
+
+/* ===== PLAYER ===== */
+#app-container {
+    width: 100%;
+    max-width: 900px;
+    display: none;
+}
+
+.player-container {
+    background: rgba(54, 54, 54, 0.95);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+    padding: 30px;
+    width: 100%;
+    text-align: center;
+    transition: transform 0.3s ease;
+    position: relative;
+}
+.player-container:hover {
+    transform: translateY(-5px);
+}
+
+#theme-toggle {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 20px;
+    color: white;
+    cursor: pointer;
+    z-index: 10;
+    transition: transform 0.3s;
+}
+#theme-toggle:hover {
+    transform: rotate(20deg);
+}
+
+.background {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    overflow: hidden;
+}
+.background img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: blur(15px) brightness(0.6);
+}
+
+.search-bar {
+    position: relative;
+    margin-bottom: 25px;
+    display: flex;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 25px;
+    padding: 10px 15px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+.search-bar i {
+    color: #ff2e63;
+    margin-right: 10px;
+    font-size: 16px;
+}
+#search-input {
+    flex: 1;
+    background: transparent;
+    border: none;
+    outline: none;
+    font-size: 14px;
+    padding: 5px 0;
+    color: white;
+}
+
+.cover-container {
+    position: relative;
+    width: 260px;
+    height: 260px;
+    margin: 0 auto 25px;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+    transition: transform 0.5s ease;
+}
+.cover-container:hover {
+    transform: scale(1.02);
+}
+#cover {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.favorite-btn {
+    position: absolute;
+    bottom: 15px;
+    right: 15px;
+    background: rgba(255, 255, 255, 0.2);
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s;
+    z-index: 2;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+.favorite-btn:hover {
+    background: rgba(255, 255, 255, 0.3);
+    transform: scale(1.15);
+}
+.favorite-btn i {
+    font-size: 20px;
+    color: #ff2e63;
+}
+
+.music-info h2 {
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: #b6b3b3;
+}
+.music-info h3 {
+    font-size: 18px;
+    color: #818181;
+    font-weight: 400;
+}
+
+.progress-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 25px 0;
+}
+.progress-container span {
+    font-size: 12px;
+    color: #666;
+    min-width: 40px;
+}
+.progress-bar {
+    flex: 1;
+    height: 6px;
+    background: #797878;
+    border-radius: 3px;
+    cursor: pointer;
+    position: relative;
+}
+.progress {
+    height: 100%;
+    background: #ff2e63;
+    border-radius: 3px;
+    width: 0%;
+    transition: width 0.1s linear;
+}
+
+.equalizer {
+    display: flex;
+    justify-content: center;
+    gap: 2px;
+    height: 60px;
+    margin: 15px 0;
+    align-items: flex-end;
+}
+.bar {
+    width: 4px;
+    border-radius: 2px;
+    transition: height 0.1s ease;
+    background: linear-gradient(to top, #ff00cc, #3333ff, #00ccff, #00ff99, #ffff00);
+    background-size: 100% 500%;
+    animation: colorShift 3s linear infinite;
+}
+
+@keyframes colorShift {
+    0% { background-position: 0% 100%; }
+    100% { background-position: 0% 0%; }
+}
+
+.controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    margin: 20px 0;
+}
+.controls i {
+    font-size: 22px;
+    color: #8b8b8b;
+    cursor: pointer;
+    transition: all 0.2s;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+}
+.controls i:hover {
+    color: #fff;
+    background: rgba(255, 255, 255, 0.1);
+    transform: scale(1.1);
+}
+.play-button {
+    background: #ff2e63 !important;
+    color: white !important;
+    font-size: 28px !important;
+    width: 60px !important;
+    height: 60px !important;
+}
+.play-button:hover {
+    background: #e02050 !important;
+    transform: scale(1.1) !important;
+}
+
+.volume-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 20px 0;
+}
+#volume {
+    flex: 1;
+    height: 6px;
+    -webkit-appearance: none;
+    background: #797878;
+    border-radius: 3px;
+    outline: none;
+}
+#volume::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: #ff2e63;
+    cursor: pointer;
+}
+
+.action-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 20px;
+}
+.action-buttons button {
+    flex: 1;
+    min-width: 120px;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 20px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    font-family:monospace;
+}
+#favorites-btn { background: #ff2e63; color: white; }
+#lyrics-btn { background: #ff2e63; color: white; }
+#playlist-btn { background: #ff2e63; color: white; }
+.upload-btn { background: #ff2e63; color: white; }
+.action-buttons button:hover {
+    transform: translateY(-2px);
+}
+#favorites-btn:hover { background: #ff2e63; }
+#lyrics-btn:hover { background: #8e44ad; }
+#playlist-btn:hover { background: #2980b9; }
+.upload-btn:hover { background: #27ae60; }
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 100;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+.modal-content {
+    background: #222;
+    border-radius: 15px;
+    width: 90%;
+    max-width: 450px;
+    max-height: 80vh;
+    overflow-y: auto;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+    color: white;
+}
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 20px 15px;
+    border-bottom: 1px solid #444;
+}
+.modal-header h3 {
+    font-size: 20px;
+    color: #fff;
+}
+.close-btn {
+    font-size: 28px;
+    cursor: pointer;
+    color: #999;
+    transition: color 0.3s;
+}
+.close-btn:hover {
+    color: #fff;
+}
+
+.favorites-list,
+.playlist-list {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    max-height: 60vh;
+    overflow-y: auto;
+}
+.music-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 12px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.3s;
+    position: relative;
+}
+.music-item:hover {
+    background: rgba(255, 255, 255, 0.1);
+    transform: translateX(5px);
+}
+.music-item.active {
+    background: rgba(255, 255, 255, 0.1);
+    border-left: 4px solid #ff2e63;
+}
+.music-item img {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+.music-info h4 {
+    margin: 0 0 5px;
+    font-size: 16px;
+    font-weight: 600;
+}
+.music-info p {
+    margin: 0;
+    font-size: 14px;
+    color: #aaa;
+}
+.favorite-icon {
+    color: #ff2e63;
+    position: absolute;
+    right: 15px;
+    font-size: 18px;
+}
+
+.lyrics-content {
+    padding: 20px;
+    font-size: 16px;
+    line-height: 1.6;
+    color: #eee;
+    white-space: pre-line;
+    text-align: center;
+}
+
+.active-control {
+    color: #ff2e63 !important;
+    background: rgba(255, 46, 99, 0.1) !important;
+}
+
+body.light-theme {
+    background: linear-gradient(135deg, #f5f7fa, #e4edf9);
+    color: #333;
+}
+body.light-theme .player-container {
+    background: rgba(255, 255, 255, 0.98);
+    color: #222;
+}
+body.light-theme .music-info h2,
+body.light-theme .music-info h3 {
+    color: #222;
+}
+body.light-theme .controls i,
+body.light-theme .progress-container span,
+body.light-theme .volume-container i {
+    color: #555;
+}
+body.light-theme .background img {
+    filter: blur(15px) brightness(0.9);
+}
+
+.toast {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%) scale(0.8);
+    background: rgba(0, 0, 0, 0.85);
+    color: white;
+    padding: 12px 24px;
+    border-radius: 30px;
+    font-size: 14px;
+    z-index: 10000;
+    opacity: 0;
+    transition: all 0.3s ease;
+    pointer-events: none;
+}
+.toast.show {
+    transform: translateX(-50%) scale(1);
+    opacity: 1;
+}
+
+/* ===== MINI PLAYER FIXO ===== */
+#mini-player {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: rgba(20, 20, 30, 0.9);
+    border-radius: 15px;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(10px);
+    z-index: 1000;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transform: translateY(100px);
+    opacity: 0;
+    transition: transform 0.4s ease, opacity 0.4s ease;
+}
+
+#mini-player.show {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+#mini-cover {
+    width: 50px;
+    height: 50px;
+    border-radius: 8px;
+    object-fit: cover;
+}
+
+.mini-info {
+    flex: 1;
+    color: white;
+    font-size: 13px;
+}
+
+#mini-title {
+    font-weight: 600;
+    margin-bottom: 2px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+#mini-artist {
+    color: #aaa;
+    font-size: 12px;
+}
+
+.mini-controls i {
+    color: #ff2e63;
+    font-size: 16px;
+    cursor: pointer;
+    margin: 0 6px;
+    transition: transform 0.2s;
+}
+
+.mini-controls i:hover {
+    transform: scale(1.2);
+}
+
+#mini-play {
+    background: #ff2e63;
+    color: white;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px !important;
+}
+
+@media (max-width: 768px) {
+    .login-container-large {
+        flex-direction: column;
+        height: auto;
+        padding: 20px;
+    }
+    .login-left-large,
+    .login-right-large {
+        width: 100%;
+        padding: 30px;
+    }
+    .nyxwave-logo-full {
+        width: 200px;
+    }
+    .login-right-large {
+        border-left: none;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    .player-container {
+        padding: 20px;
+        margin: 10px;
+    }
+    .cover-container {
+        width: 220px;
+        height: 220px;
+    }
+    .controls {
+        gap: 12px;
+    }
+    .controls i {
+        font-size: 18px;
+        width: 35px;
+        height: 35px;
+    }
+    .play-button {
+        width: 50px !important;
+        height: 50px !important;
+        font-size: 24px !important;
+    }
+    .action-buttons {
+        flex-direction: column;
+    }
+}
+
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    75% { transform: translateX(5px); }
+}
+
+/* ===== PERFIL DO USUÁRIO ===== */
+.user-profile {
+    position: absolute;
+    top: 10px;
+    right: 50px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    z-index: 10;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 6px 12px;
+    border-radius: 20px;
+    transition: all 0.3s;
+}
+.user-profile:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateY(-2px);
+}
+.user-profile i {
+    font-size: 20px;
+}
+
+/* Link de cadastro */
+.signup-link {
+    text-align: center;
+    margin-top: 10px;
+}
+.signup-link a {
+    color: #aaa;
+    text-decoration: none;
+    font-size: 14px;
+}
+.signup-link a:hover {
+    color: #ff2e63;
+    text-decoration: underline;
+}
+
+/* Tela de cadastro */
+#signup-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9998;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.6s ease, visibility 0.6s ease;
+}
+#signup-screen.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+
+/* ===== LINK DE CADASTRO ===== */
+.signup-link {
+    text-align: center;
+    margin-top: 10px;
+}
+.signup-link a {
+    color: #ff2e63;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+}
+.signup-link a:hover {
+    text-decoration: underline;
+}
+
+/* ===== MODAL DE PERFIL ===== */
+.profile-content {
+    padding: 25px;
+    text-align: center;
+    color: #eee;
+    font-size: 18px;
+    line-height: 1.8;
+}
+.profile-content p {
+    margin: 0;
+}
+.profile-content strong {
+    color: #ff2e63;
+    display: block;
+    font-size: 22px;
+    margin: 10px 0;
+}
+
+/* Garantir que o botão de login sempre seja clicável */
+#login-form button[type="submit"] {
+    pointer-events: auto !important;
+    opacity: 1 !important;
+    cursor: pointer !important;
+}
+
+/* ===== BOTÃO DE CRIAR CONTA NO FORMULÁRIO ===== */
+#signup-form button[type="submit"] {
+    width: 100%;
+    padding: 15px;
+    background: #ff2e63;
+    color: white;
+    border: none;
+    border-radius: 15px;
+    font-size: 18px;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 15px;
+    transition: all 0.3s ease;
+    text-align: center;
+}
+
+#signup-form button[type="submit"]:hover {
+    background: #e02050;
+    transform: translateY(-2px);
+}
+
+/* Centralizar o link "Já tem conta? Entrar" */
+#signup-form .signup-link {
+    text-align: center;
+    margin-top: 15px;
+    font-size: 14px;
+}
+
+#signup-form .signup-link a {
+    color: #ff2e63;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+#signup-form .signup-link a:hover {
+    text-decoration: underline;
+}
+
+/* ===== BOTÃO DE PERFIL ESTILO MINI PLAYER ===== */
+.mini-player-style {
+    position: absolute;
+    top: 10px;
+    right: 50px;
+    background: rgba(20, 20, 30, 0.9);
+    border-radius: 15px;
+    padding: 8px 12px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(5px);
+    z-index: 10;
+    transition: all 0.3s ease;
+}
+
+.mini-player-style:hover {
+    transform: translateY(-2px);
+    background: rgba(30, 30, 40, 0.95);
+}
+
+.user-avatar {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.user-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: white;
+    font-size: 12px;
+    line-height: 1.2;
+    max-width: 100px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+#username-display {
+    font-weight: 600;
+    font-size: 14px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+#play-count {
+    color: #aaa;
+    font-size: 12px;
+    margin-top: 2px;
+}
+
+.user-icon {
+    color: #ff2e63;
+    font-size: 16px;
+    transition: transform 0.2s;
+}
+
+.mini-player-style:hover .user-icon {
+    transform: scale(1.1);
+}
+
+/* ===== MINI PLAYER DE PERFIL ===== */
+#profile-mini {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: rgba(20, 20, 30, 0.9);
+    border-radius: 15px;
+    padding: 8px 12px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(10px);
+    z-index: 1000;
+    transform: translateY(100px);
+    opacity: 0;
+    transition: all 0.4s ease;
+}
+
+#profile-mini.show {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+#profile-mini:hover {
+    transform: translateY(-2px) !important;
+    background: rgba(30, 30, 40, 0.95);
+}
+
+#profile-mini .user-avatar {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+#profile-mini .user-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: white;
+    font-size: 12px;
+    line-height: 1.2;
+    max-width: 100px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+#profile-mini #username-display-mini {
+    font-weight: 600;
+    font-size: 14px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+#profile-mini #play-count-mini {
+    color: #aaa;
+    font-size: 12px;
+    margin-top: 2px;
+}
+
+#profile-mini .user-icon {
+    color: #ff2e63;
+    font-size: 16px;
+    transition: transform 0.2s;
+}
+
+#profile-mini:hover .user-icon {
+    transform: scale(1.1);
+}
+
+/* ===== AVATAR DO PERFIL ===== */
+.avatar-container {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: #180333;
+}
+
+.user-avatar {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* Se o avatar for texto (fallback) */
+.user-avatar {
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+/* Modal de recuperação de senha */
+#forgot-password-modal .modal-body {
+    text-align: left;
+}
+#forgot-message.success {
+    color: #4caf50;
+}
+#forgot-message.error {
+    color: #ff4d6d;
+}
